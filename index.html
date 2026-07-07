@@ -18,7 +18,8 @@
         <li><a href="#skills">Skills</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-      <!-- TODO: Ask Copilot to add a dark mode toggle button here -->
+      <!-- Dark mode toggle -->
+      <button id="dark-toggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button>
     </nav>
 
     <!-- ============================================================
@@ -109,5 +110,25 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+      // Dark mode toggle: toggles .dark on <body> and persists choice
+      (function(){
+        const btn = document.getElementById('dark-toggle');
+        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const saved = localStorage.getItem('theme');
+        const apply = (mode) => {
+          if(mode === 'dark') document.body.classList.add('dark'); else document.body.classList.remove('dark');
+          btn.textContent = mode === 'dark' ? '☀️' : '🌙';
+        };
+        const initial = saved || (prefersDark ? 'dark' : 'light');
+        apply(initial);
+        btn.addEventListener('click', () => {
+          const isDark = document.body.classList.toggle('dark');
+          const mode = isDark ? 'dark' : 'light';
+          localStorage.setItem('theme', mode);
+          btn.textContent = isDark ? '☀️' : '🌙';
+        });
+      })();
+    </script>
   </body>
 </html>
