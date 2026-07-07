@@ -97,12 +97,43 @@ function updateYear() {
 }
 
 // ============================================================
+// HERO TYPEWRITER
+// ============================================================
+function typeHeroName() {
+  const target = document.getElementById("typed-name");
+  if (!target) return;
+
+  const text = "Jaden lunsford";
+  const reducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if (reducedMotion) {
+    target.textContent = text;
+    return;
+  }
+
+  let index = 0;
+  target.textContent = "";
+
+  function typeNextCharacter() {
+    target.textContent += text.charAt(index);
+    index += 1;
+
+    if (index < text.length) {
+      window.setTimeout(typeNextCharacter, 90);
+    }
+  }
+
+  typeNextCharacter();
+}
+
+// ============================================================
 // INIT
 // ============================================================
 document.addEventListener("DOMContentLoaded", () => {
   renderProjects();
   renderSkills();
   updateYear();
+  typeHeroName();
 
   // TODO: Wire up your dark mode toggle button here once you add it
 });
