@@ -79,9 +79,10 @@ a:hover {
 }
 
 .nav-logo {
-  font-weight: 700;
-  font-size: 1.2rem;
-  color: var(--color-accent);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.3rem;
+  color: #f0c07b;
 }
 
 .nav-links {
