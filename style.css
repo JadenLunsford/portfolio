@@ -87,7 +87,7 @@ a:hover {
   font-weight: 800;
   font-size: 1.3rem;
   letter-spacing: 0.03em;
-  color: #f0c07b;
+  color: #f5d79b;
 }
 
 .nav-links {
@@ -140,7 +140,7 @@ a:hover {
 }
 
 .highlight {
-  color: #f0c07b;
+  color: #f5d79b;
 }
 
 .hero-icon {
@@ -389,13 +389,60 @@ footer {
    TODO: This is a start, but there's more to do on mobile.
    Ask Copilot: "Improve the responsive styles for screens under 600px"
    ============================================================ */
-@media (max-width: 768px) {
+@media (max-width: 600px) {
+  .navbar {
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .nav-logo {
+    font-size: 1.1rem;
+  }
+
+  .nav-links {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem 1rem;
+  }
+
+  .nav-links li {
+    flex: 0 1 auto;
+  }
+
+  .hero {
+    padding: 3rem 1.25rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(1.6rem, 8vw, 2.4rem);
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .btn {
+    padding: 0.65rem 1.25rem;
+    font-size: 0.95rem;
+  }
+
   .about-grid {
     grid-template-columns: 1fr;
   }
 
-  .avatar-placeholder {
+  .about-photo {
     width: 100px;
     height: 100px;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section,
+  .section-alt {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
   }
 }
