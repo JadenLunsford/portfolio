@@ -11,8 +11,8 @@
   --color-accent-hover: #b16253;
   --color-border: #ddd1c4;
   --font-main: 'Segoe UI', system-ui, sans-serif;
-  --font-display: Georgia, 'Times New Roman', serif;
-  --hero-image: url("./Images/lightmode.jpeg");
+  --font-display: 'SFMono-Regular', Menlo, Consolas, 'Liberation Mono', monospace;
+  --hero-image: url("./Images/Lightmode2.jpeg");
   --radius: 10px;
   --shadow: 0 10px 30px rgba(31, 41, 55, 0.12);
   --transition: 0.2s ease;
@@ -26,7 +26,7 @@
     --color-accent: #d8a15d;
     --color-accent-hover: #f0c07b;
     --color-border: #243042;
-    --hero-image: url("./Images/darkmode.jpeg");
+    --hero-image: url("./Images/Darkmode2.jpeg");
     --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
   }
 
@@ -52,6 +52,8 @@ body {
 
 h1, h2 {
   font-family: var(--font-display);
+  letter-spacing: 0.03em;
+  text-rendering: geometricPrecision;
 }
 
 a {
@@ -84,6 +86,7 @@ a:hover {
   font-family: var(--font-display);
   font-weight: 800;
   font-size: 1.3rem;
+  letter-spacing: 0.03em;
   color: #f0c07b;
 }
 
