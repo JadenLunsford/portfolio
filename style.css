@@ -105,6 +105,89 @@ a:hover {
   color: var(--color-accent);
 }
 
+.dark-toggle {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  padding: 0.35rem;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #f5d79b;
+  transition: transform var(--transition), background-color var(--transition), color var(--transition);
+}
+
+.dark-toggle:hover {
+  transform: translateY(-1px);
+  background: rgba(245, 215, 155, 0.12);
+}
+
+.dark-toggle:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+.dark-toggle[data-state="off"] {
+  color: #8e99a9;
+}
+
+.dark-toggle[data-state="off"]:hover {
+  background: rgba(142, 153, 169, 0.14);
+}
+
+.torch-icon {
+  width: 1.7rem;
+  height: 1.7rem;
+  display: block;
+  shape-rendering: crispEdges;
+}
+
+.torch-handle,
+.torch-cap,
+.torch-flame,
+.torch-spark {
+  shape-rendering: crispEdges;
+}
+
+.torch-handle {
+  fill: currentColor;
+}
+
+.torch-cap {
+  fill: currentColor;
+}
+
+.torch-flame {
+  fill: currentColor;
+  transform-origin: center bottom;
+}
+
+.torch-spark {
+  fill: #fff1a8;
+  transform-origin: center bottom;
+}
+
+.dark-toggle[data-state="off"] .torch-flame,
+.dark-toggle[data-state="off"] .torch-spark {
+  opacity: 0;
+}
+
+.dark-toggle[data-state="lit"] .torch-flame {
+  animation: torch-flicker 1.2s ease-in-out infinite alternate;
+}
+
+@keyframes torch-flicker {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+
+  100% {
+    transform: translateY(-1px) scale(1.03);
+  }
+}
+
 /* TODO: The nav isn't responsive on mobile yet.
    Ask Copilot: "Make this navbar collapse into a hamburger menu on small screens" */
 
