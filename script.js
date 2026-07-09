@@ -111,19 +111,44 @@ function typeHeroName() {
     return;
   }
 
-  let index = 0;
-  target.textContent = "";
+  function runTyping() {
+    let index = 0;
+    target.textContent = "";
 
-  function typeNextCharacter() {
-    target.textContent += text.charAt(index);
-    index += 1;
+    function typeNextCharacter() {
+      target.textContent += text.charAt(index);
+      index += 1;
 
-    if (index < text.length) {
-      window.setTimeout(typeNextCharacter, 90);
+      if (index < text.length) {
+        window.setTimeout(typeNextCharacter, 90);
+      } else {
+        window.setTimeout(eraseNextCharacter, 1200);
+      }
     }
+
+    function eraseNextCharacter() {
+      target.textContent = text.slice(0, -1);
+
+      let eraseIndex = text.length - 1;
+
+      function stepErase() {
+        target.textContent = text.slice(0, eraseIndex);
+        eraseIndex -= 1;
+
+        if (eraseIndex >= 0) {
+          window.setTimeout(stepErase, 45);
+        } else {
+          window.setTimeout(runTyping, 500);
+        }
+      }
+
+      stepErase();
+    }
+
+    typeNextCharacter();
   }
 
-  typeNextCharacter();
+  runTyping();
 }
 
 // ============================================================
